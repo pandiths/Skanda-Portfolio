@@ -1,0 +1,260 @@
+:root {
+  --bg: #070b17;
+  --panel: #0f172a;
+  --panel-soft: #111b32;
+  --text: #e5ecff;
+  --muted: #9aa9c8;
+  --line: rgba(154, 169, 200, 0.22);
+  --accent: #66d9ff;
+  --accent-2: #9b8cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.72;
+  min-height: 100vh;
+}
+
+.aurora {
+  position: fixed;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.35;
+}
+
+.aurora-one {
+  width: 460px;
+  height: 460px;
+  background: #4f84ff;
+  top: -130px;
+  right: -120px;
+}
+
+.aurora-two {
+  width: 400px;
+  height: 400px;
+  background: #8f6dff;
+  bottom: -140px;
+  left: -120px;
+}
+
+.shell {
+  width: min(1160px, 92%);
+  margin: 0 auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid var(--line);
+  background: rgba(7, 11, 23, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 0;
+}
+
+.brand {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 1.1rem;
+  font-size: 0.93rem;
+}
+
+nav a:hover,
+.contact a:hover,
+.rail a:hover {
+  color: var(--accent);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 2rem;
+  padding: 2.4rem 0 5rem;
+}
+
+.rail {
+  position: sticky;
+  top: 6.3rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rail a {
+  text-decoration: none;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.content {
+  max-width: 880px;
+}
+
+.hero {
+  padding: 2.8rem 0 2rem;
+}
+
+.eyebrow,
+.section-tag {
+  color: var(--accent);
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  font-size: 0.88rem;
+  font-family: "JetBrains Mono", monospace;
+}
+
+h1 {
+  margin: 0.3rem 0 0.8rem;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1.1;
+}
+
+h2 {
+  margin: 0.3rem 0 1rem;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+h3 {
+  margin: 0.1rem 0 0.55rem;
+  font-size: 1.04rem;
+}
+
+.lede {
+  color: var(--muted);
+  max-width: 72ch;
+}
+
+.cta-row {
+  display: flex;
+  gap: 0.8rem;
+  margin: 1.3rem 0;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.52rem 0.9rem;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background: linear-gradient(130deg, var(--accent), var(--accent-2));
+  color: #06111f;
+  border: none;
+}
+
+.btn-ghost {
+  color: var(--text);
+  background: rgba(17, 27, 50, 0.5);
+}
+
+.chips span {
+  display: inline-block;
+  margin: 0.55rem 0.45rem 0 0;
+  padding: 0.25rem 0.68rem;
+  border: 1px solid rgba(102, 217, 255, 0.35);
+  border-radius: 999px;
+  color: #bfefff;
+  font-size: 0.79rem;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.panel,
+.card {
+  background: linear-gradient(180deg, rgba(17, 27, 50, 0.88), rgba(15, 23, 42, 0.9));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem 1.15rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+p,
+li {
+  color: #c9d4ef;
+}
+
+.timeline {
+  display: grid;
+  gap: 1rem;
+}
+
+.date {
+  margin: 0;
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.79rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.shown {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rail {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  nav {
+    display: none;
+  }
+}
